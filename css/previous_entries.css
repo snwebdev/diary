@@ -1,0 +1,49 @@
+.navbar-brand {
+            font-weight: bold;
+        }
+        #home{
+            background-image: url(img/man-field-smartphone-yellow-medium.jpg);
+            width: 100%;
+            background-size: cover;
+        }
+        #topRow {
+            margin-top: 100px;
+            text-align: center;
+        }
+        #topRow h1 {
+            font-size: 400%;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .paddingTop {
+            margin-top: 30px;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        .title {
+            margin-top: 100px;
+            font-size: 200%;
+        }
+        .contentContainer {
+
+        }
+        #download{
+            background-color: #92b6e5;
+            width: 100%;
+        }
+        .paddingBottom {
+            margin-bottom: 30px;
+        }
+        .appStoreImage {
+            width: 250px;
+        }
+
+        .imageCentered {
+            display: block;
+            margin-left: auto;
+            margin-right: auto 
+        }
