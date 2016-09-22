@@ -44,7 +44,7 @@ if ($_POST['submit'] == 'Sign Up') {
             mysqli_query($dbConnection, $query);
             //maybe login from here in cse db fails and useer unaware
             $_SESSION['id'] = mysqli_insert_id($dbConnection);
-            $_SESSION['email'] = $signupEmail;
+            $_SESSION['name'] = $signupUserName;
 
 
             header('Location: mainPage.php');
@@ -58,21 +58,21 @@ if ($_POST['submit'] == 'Login') {
         die("Couldn't connect to the database!");
     }
 
-    if (!$_POST['loginEmail']) {
-        $error .= "No email address entered.<br />";
+    if (!$_POST['loginUserName']) {
+        $error .= "No User Name entered.<br />";
     }
 
     if (!$_POST['loginPassword']) {
         $error .= "No password entered.<br />";
     }
 
-    if ($_POST['loginEmail'] && $_POST['loginPassword']) {
+    if ($_POST['loginUserName'] && $_POST['loginPassword']) {
 
-        $loginEmail = mysqli_real_escape_string($dbConnection, $_POST['loginEmail']);
+        $loginUserName = mysqli_real_escape_string($dbConnection, $_POST['loginUserName']);
         $loginPassword = $_POST['loginPassword'];
         $hashLoginPassword = md5(md5($loginEmail).$loginPassword);
 
-        $query = "SELECT * FROM users WHERE email='$loginEmail' && password='$hashLoginPassword' LIMIT 1";
+        $query = "SELECT * FROM users WHERE name='$loginUserName' && password='$hashLoginPassword' LIMIT 1";
         $result = mysqli_query($dbConnection, $query);
         $row = mysqli_fetch_array($result);
 
@@ -80,7 +80,7 @@ if ($_POST['submit'] == 'Login') {
 
            $_SESSION['id'] = $row['id'];
           
-         $_SESSION['email'] = $row['email'];
+         $_SESSION['name'] = $row['loginUserName'];
       
             header("Location:mainPage.php");
         } else {
